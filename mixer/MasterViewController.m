@@ -43,8 +43,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"DrinkArray" ofType:@"plist"];
-    
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"DrinkDirections" ofType:@"plist"];
+
     drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:path];    
     
 }
@@ -106,7 +106,9 @@
     }
 
     // Configure the cell.
-    cell.textLabel.text = [self.drinks objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [[self.drinks objectAtIndex:indexPath.row] objectForKey:@"name"];
+
     return cell;
 }
 

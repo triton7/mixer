@@ -16,12 +16,18 @@
 
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize nameTextField = nameTextField_;
+@synthesize indigrientsTV = indigrientsTV_;
+@synthesize instructionTV = instructionTV_;
 
 
 - (void)dealloc
 {
     [_detailItem release];
     [_detailDescriptionLabel release];
+    [nameTextField_ release];
+    [indigrientsTV_ release];
+    [instructionTV_ release];
     [super dealloc];
 }
 
