@@ -11,7 +11,12 @@
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
+{
+    NSMutableArray* drinks_;
+}
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+
+@property (nonatomic, retain) NSMutableArray* drinks;
 
 @end

@@ -13,12 +13,14 @@
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
+@synthesize drinks = drinks_;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Master", @"Master");
+        self.title = NSLocalizedString(@"Mixer", @"Mixer");
     }
     return self;
 }
@@ -41,6 +43,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"DrinkArray" ofType:@"plist"];
+    
+    drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:path];    
+    
 }
 
 - (void)viewDidUnload
@@ -48,6 +54,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [self.drinks release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.drinks count];
 }
 
 // Customize the appearance of table view cells.
@@ -99,7 +106,7 @@
     }
 
     // Configure the cell.
-    cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+    cell.textLabel.text = [self.drinks objectAtIndex:indexPath.row];
     return cell;
 }
 

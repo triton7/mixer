@@ -17,6 +17,7 @@
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 
+
 - (void)dealloc
 {
     [_detailItem release];
