@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "DrinkConstants.h"
 
 @implementation MasterViewController
 
@@ -107,8 +108,8 @@
 
     // Configure the cell.
     
-    cell.textLabel.text = [[self.drinks objectAtIndex:indexPath.row] objectForKey:@"name"];
-
+    cell.textLabel.text = [[self.drinks objectAtIndex:indexPath.row] objectForKey:NAME_KEY];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
