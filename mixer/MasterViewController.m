@@ -155,6 +155,7 @@
     if (!self.detailViewController) {
         self.detailViewController = [[[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil] autorelease];
     }
+    self.detailViewController.drink = [self.drinks objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:self.detailViewController animated:YES];
 }
 

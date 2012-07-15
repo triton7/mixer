@@ -14,6 +14,8 @@
     UITextView* indigrientsTV_;
     UITextView* instructionTV_;
     
+    NSDictionary* drink_;
+    
 }
 
 @property (strong, nonatomic) id detailItem;
@@ -23,6 +25,7 @@
 @property (nonatomic, retain) IBOutlet UITextField* nameTextField;
 @property (nonatomic, retain) IBOutlet UITextView* indigrientsTV;
 @property (nonatomic, retain) IBOutlet UITextView* instructionTV;
+@property (nonatomic, retain) NSDictionary* drink;
 
 
 @end

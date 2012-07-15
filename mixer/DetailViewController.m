@@ -19,6 +19,7 @@
 @synthesize nameTextField = nameTextField_;
 @synthesize indigrientsTV = indigrientsTV_;
 @synthesize instructionTV = instructionTV_;
+@synthesize drink = drink_;
 
 
 - (void)dealloc
@@ -28,6 +29,7 @@
     [nameTextField_ release];
     [indigrientsTV_ release];
     [instructionTV_ release];
+    [drink_ release];
     [super dealloc];
 }
 
@@ -65,6 +67,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    
     [self configureView];
 }
 
@@ -78,6 +82,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    nameTextField_.text = [drink_ objectForKey:@"name"];
+    indigrientsTV_.text = [drink_ objectForKey:@"ingredients"];
+    instructionTV_.text = [drink_ objectForKey:@"directions"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
