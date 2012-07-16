@@ -15,7 +15,12 @@
 
 @synthesize detailViewController = _detailViewController;
 @synthesize drinks = drinks_;
+@synthesize addButton = addButton_;
 
+- (IBAction)addButtonPressed:(id)sender
+{
+    NSLog(@"%@", @"add button pressed.");
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +34,7 @@
 - (void)dealloc
 {
     [_detailViewController release];
+    [addButton_ release];
     [super dealloc];
 }
 
@@ -43,9 +49,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = self.addButton;
 	// Do any additional setup after loading the view, typically from a nib.
     NSString* path = [[NSBundle mainBundle] pathForResource:@"DrinkDirections" ofType:@"plist"];
-
+    
     drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:path];    
     
 }
