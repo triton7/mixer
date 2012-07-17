@@ -16,21 +16,21 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize nameTextField = nameTextField_;
 @synthesize indigrientsTV = indigrientsTV_;
 @synthesize instructionTV = instructionTV_;
 @synthesize drink = drink_;
+@synthesize scrollView = _scrollView;
 
 
 - (void)dealloc
 {
     [_detailItem release];
-    [_detailDescriptionLabel release];
     [nameTextField_ release];
     [indigrientsTV_ release];
     [instructionTV_ release];
     [drink_ release];
+    [_scrollView release];
     [super dealloc];
 }
 
@@ -47,13 +47,11 @@
     }
 }
 
+
 - (void)configureView
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +66,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
+    self.scrollView.contentSize = self.view.frame.size;
     
     [self configureView];
 }
@@ -89,6 +87,7 @@
         indigrientsTV_.text = [drink_ objectForKey:INGREDIENTS_KEY];
         instructionTV_.text = [drink_ objectForKey:DIRECTIONS_KEY];
     }
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -99,6 +98,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
+ 
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -120,5 +120,7 @@
     }
     return self;
 }
+
+
 							
 @end
