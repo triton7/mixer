@@ -15,5 +15,6 @@
 }
 
 -(IBAction)save:(id)sender;
+-(IBAction)save22:(id)sender;
 -(IBAction)cancel:(id)sender;
 @end

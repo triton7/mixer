@@ -1,13 +1,12 @@
 //
 //  AddDrinkViewController.m
-//  mixer
+//  mixer2
 //
 //  Created by Administrator on 16.07.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "AddDrinkViewController.h"
-
 @implementation AddDrinkViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
