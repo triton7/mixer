@@ -83,9 +83,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    nameTextField_.text = [drink_ objectForKey:NAME_KEY];
-    indigrientsTV_.text = [drink_ objectForKey:INGREDIENTS_KEY];
-    instructionTV_.text = [drink_ objectForKey:DIRECTIONS_KEY];
+    if (drink_)
+    {
+        nameTextField_.text = [drink_ objectForKey:NAME_KEY];
+        indigrientsTV_.text = [drink_ objectForKey:INGREDIENTS_KEY];
+        instructionTV_.text = [drink_ objectForKey:DIRECTIONS_KEY];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

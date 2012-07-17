@@ -10,16 +10,21 @@
 
 #import "DetailViewController.h"
 #import "DrinkConstants.h"
+#import "AddDrinkViewController.h"
 
 @implementation MasterViewController
 
 @synthesize detailViewController = _detailViewController;
 @synthesize drinks = drinks_;
 @synthesize addButton = addButton_;
+@synthesize addDrinkViewController = addDrinkViewController_;
+@synthesize addNavController = addNavController_;
 
 - (IBAction)addButtonPressed:(id)sender
 {
-    NSLog(@"%@", @"add button pressed.");
+
+    [self presentModalViewController:self.addNavController animated:YES];
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,9 +58,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     NSString* path = [[NSBundle mainBundle] pathForResource:@"DrinkDirections" ofType:@"plist"];
     
-    drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:path];    
+    drinks_ = [[NSMutableArray alloc] initWithContentsOfFile:path];
+    self.addDrinkViewController = [[AddDrinkViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    self.addNavController = [[UINavigationController alloc] initWithRootViewController:self.addDrinkViewController];
     
 }
+
 
 - (void)viewDidUnload
 {
@@ -63,6 +71,8 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     [self.drinks release];
+    [addNavController_ release];
+    [addDrinkViewController_ release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
