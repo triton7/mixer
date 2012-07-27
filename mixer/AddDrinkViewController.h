@@ -16,6 +16,6 @@
 
 -(IBAction)save:(id)sender;
 -(IBAction)cancel:(id)sender;
-- (void) keyboardDidShow: (NSNotification*) info;
-- (void) keyboardDidHide: (NSNotification*) info;
+- (void) keyboardDidShow: (NSNotification*) notif;
+- (void) keyboardDidHide: (NSNotification*) notif;
 @end

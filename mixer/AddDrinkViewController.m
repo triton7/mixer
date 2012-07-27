@@ -84,12 +84,30 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void) keyboardDidShow:(NSNotification*)info
+- (void) keyboardDidShow:(NSNotification*)notif
 {
-    NSLog(@"%@", @"blaaa");
-}
-- (void) keyboardDidHide:(NSNotification*)info
-{
+    if (_keyboardShown)
+    {
+        return;
+    }
+    NSDictionary* info = [notif userInfo];
+    NSValue *aValue = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    CGFloat keyboardTop = keyboardRect.origin.y;
+    CGRect viewFrame = self.view.bounds;
+    viewFrame.size.height = keyboardTop - self.view.bounds.origin.y;
+    self.scrollView.frame = viewFrame;
+    _keyboardShown = YES;
     
+}
+- (void) keyboardDidHide:(NSNotification*)notif
+{
+    if (!_keyboardShown)
+    {
+        return;        
+    }
+    self.scrollView.frame = self.view.bounds;
+    _keyboardShown = NO;
 }
 @end
