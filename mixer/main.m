@@ -1,6 +1,6 @@
 //
 //  main.m
-//  mixer
+//  mixer1
 //
 //  Created by Administrator on 13.07.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
